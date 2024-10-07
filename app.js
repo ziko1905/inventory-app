@@ -8,9 +8,9 @@ app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "ejs")
 
 app.use("/", productsRouter)
-app.use("/category", categoriesRouter)
+app.use("/categories", categoriesRouter)
 app.use((err, req, res, next) => {
-    res.render("errorPage", { title: "Error Occurred", error: err })
+    res.render("errorPage", { title: "Error Occurred", errorMessage: err })
 })
 
 const PORT = process.env.PORT || 3000
