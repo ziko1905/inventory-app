@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <div class="filter-div">
+        <form action="/" method="POST">
+            <input type="text" name="search" id="search-bar">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <% categories.forEach(cat => { %>
+        <!-- WIP - waiting for clearer picture of card.ejs implementation -->
+        <%- include("./partials/card.ejs", { name: cat.name, }) %>
+    <% }) %>
+    <a href="/create">Create New</a>
+</body>
+</html>
