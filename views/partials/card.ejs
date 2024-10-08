@@ -6,4 +6,6 @@
             <div class="data"><%= `${labels[key]} ${value}` %></div>
         <% } %>
     <% } %>
+    <a href="<%= route %>/<%= item.id %>/update" id="update-btn">Update</a>
+    <a href="<%= route %>/<%= item.id %>/delete" id="delete-btn">Delete</a>
 </div>

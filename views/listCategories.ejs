@@ -15,7 +15,7 @@
     </div>
     <% categories.forEach(cat => { %>
         <!-- WIP - waiting for clearer picture of card.ejs implementation -->
-        <%- include("./partials/card.ejs", { item: cat }) %>
+        <%- include("./partials/card.ejs", { item: cat, route: "/categories" }) %>
     <% }) %>
     <a href="/categories/create">Create New</a>
 </body>
