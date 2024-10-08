@@ -2,9 +2,13 @@ const db = require("../db/queries")
 const asyncHandler = require("express-async-handler")
 const { NotFoundError } = require("../errors")
 
-function productsListGet(req, res) {
-    // empty array until db is created
-    res.render("listProducts", {title: "Products list", categories: [], products: []})
+async function productsListGet(req, res) {
+    const search = req.query.search
+    const categoryId = req.query.categoryId
+
+    const [ products, categories ] = await Promise.all([db.getAllProducts(search, categoryId), db.getAllCategories()])
+
+    res.render("listProducts", {title: "Products list", products: products, categories: categories})
 }
 
 const productGet = asyncHandler(async (req, res) => {
