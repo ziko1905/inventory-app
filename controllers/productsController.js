@@ -14,7 +14,13 @@ const productGet = asyncHandler(async (req, res) => {
     res.render('product', { title: `${product.name} - product info`, info: product, infoArr: categories})
 })
 
+const productCreateGet = asyncHandler(async (req, res) => {
+    // empty until db query is developed
+    res.render("createProduct", {title: "Create New Product", categories: []})
+})
+
 module.exports = {
     productsListGet,
     productGet,
+    productCreateGet,
 }
