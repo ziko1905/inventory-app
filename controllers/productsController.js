@@ -19,8 +19,16 @@ const productCreateGet = asyncHandler(async (req, res) => {
     res.render("createProduct", {title: "Create New Product", categories: []})
 })
 
+const productUpdateGet = asyncHandler(async (req, res) => {
+    const id = req.params.id
+    const { product } = await db.getProduct(id)
+    if (!product) throw new NotFoundError(`Couldn't find product with id: ${id}`)
+    res.render('updateProduct', {title: `${product.name} - product update`, product: product})
+})
+
 module.exports = {
     productsListGet,
     productGet,
     productCreateGet,
+    productUpdateGet
 }

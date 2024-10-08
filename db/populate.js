@@ -6,7 +6,8 @@ const CREATE_PRODUCTS_TABLE = `CREATE TABLE IF NOT EXISTS products (
     name VARCHAR ( 20 ),
     stock_amount INTEGER,
     size VARCHAR (3),
-    color VARCHAR ( 20 )
+    color VARCHAR ( 20 ),
+    category_id INTEGER
 );`
 
 const CREATE_CATEGORIES_TABLE = `CREATE TABLE IF NOT EXISTS categories (
@@ -14,13 +15,7 @@ const CREATE_CATEGORIES_TABLE = `CREATE TABLE IF NOT EXISTS categories (
     name VARCHAR ( 20 )
 );`
 
-const CREATE_LINKER_TABLE = `CREATE TABLE IF NOT EXISTS linker (
-    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    product_id INTEGER,
-    category_id INTEGER
-);`
-
-const SQL = CREATE_PRODUCTS_TABLE + CREATE_CATEGORIES_TABLE + CREATE_LINKER_TABLE
+const SQL = CREATE_PRODUCTS_TABLE + CREATE_CATEGORIES_TABLE
 
 const main = async (connectionString=process.argv[2]) => {
     console.log("sending...")
