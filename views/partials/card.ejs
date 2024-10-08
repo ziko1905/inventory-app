@@ -1,0 +1,9 @@
+<div class="card">
+    <h3><%= item.name%></h3>
+    <% const labels = {stock_amount: 'Stock Amount: ', size: 'Size: ', color: 'Color: ', category: 'Category: '} %>
+    <% for (const [key, value] of Object.entries(item)) {%>
+        <% if (value && key != 'id' && key != 'name') {%>
+            <div class="data"><%= `${labels[key]} ${value}` %></div>
+        <% } %>
+    <% } %>
+</div>

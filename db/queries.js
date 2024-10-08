@@ -25,7 +25,6 @@ async function getCategory(id) {
 async function getAllProducts(search, categoryId) {
     const { rows } = await pool.query(`SELECT * FROM products WHERE name LIKE $1 AND ($2 = -1 OR category_id = $2)`, [search ? `%${search}%` : "%%", 
         categoryId != undefined ? categoryId : -1])
-    console.log("Search: ", `%${search}%`)
     return rows
 }
 

@@ -21,8 +21,7 @@
         </form>
     </div>
     <% products.forEach(prod => { %>
-        <!-- WIP - waiting for clearer picture of card.ejs implementation -->
-        <%- include("./partials/card.ejs", { name: prod.name, }) %>
+        <%- include("./partials/card.ejs", { item: prod }) %>
     <% }) %>
     <a href="/create">Create New</a>
 </body>
