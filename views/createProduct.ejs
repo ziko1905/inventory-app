@@ -14,6 +14,7 @@
         <input min="1" type="number" name="stockAmount" id="stockAmount" required>
         <label for="size">Size:</label>
         <select name="size" id="size">
+            <option value="" selected disabled hidden>Choose size</option>
             <option value="xs">XS</option>
             <option value="s">S</option>
             <option value="m">M</option>
@@ -23,6 +24,7 @@
         </select>
         <label for="color">Color:</label>
         <select name="color" id="color">
+            <option value="" selected disabled hidden>Choose color</option>
             <option value="green">Green</option>
             <option value="Blue">Blue</option>
             <option value="yellow">Yellow</option>
@@ -32,7 +34,7 @@
         </select>
         <label for="category">Category:</label>
         <select name="category" id="category">
-            <option value="" selected>None</option>
+            <option value="" selected disabled hidden>None</option>
             <% categories.forEach(cat => { %>
                 <option value="<%= cat.name %>"><%= cat.name %></option>
             <% }) %>
