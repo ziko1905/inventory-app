@@ -1,7 +1,6 @@
 const pool = require("./pool")
 
 async function getProduct(id) {
-    console.log("ID", id)
     const productPromise = new Promise((resolve, reject) => {
         pool.query("SELECT * FROM products WHERE id = $1", [id])
         .then(value => resolve(value.rows))
@@ -15,10 +14,15 @@ async function getProduct(id) {
     })
     
     const { product, categoriesList } = await Promise.all([productPromise, categoriesPromise])
-    console.log(product, categoriesList, "QUERY DATA")
     return [product, categoriesList]
+}
+
+async function getCategory(id) {
+    const { rows } = await pool.query("SELECT * FROM categories WHERE id = $1", [id])
+    return rows
 }
 
 module.exports = {
     getProduct,
+    getCategory,
 }

@@ -9,8 +9,9 @@ function categoriesListGet(req, res) {
 const categoryGet = asyncHandler(async (req, res) => {
     const id = req.params.categoryId
     const category = await db.getCategory(id)
-    if (!category) throw new NotFoundError("Couldn't find category with id:", id)
-    res.render("category", {info: category})
+    console.log("category = ", category)
+    if (!category.length) throw new NotFoundError(`Couldn't find category with id: ${id}`)
+    res.render("category", {title: `${category.name} - category info`, info: category})
 })
 
 module.exports = {
