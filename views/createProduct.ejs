@@ -7,39 +7,6 @@
 </head>
 <body>
     <h1><%= title %></h1>
-    <form action="/create" method="POST">
-        <label for="productName">Name</label>
-        <input type="text" name="name" id="productName" required>
-        <label for="stockAmount">Amount in stock:</label>
-        <input min="1" type="number" name="stockAmount" id="stockAmount" required>
-        <label for="size">Size:</label>
-        <select name="size" id="size">
-            <option value="" selected disabled hidden>Choose size</option>
-            <option value="xs">XS</option>
-            <option value="s">S</option>
-            <option value="m">M</option>
-            <option value="l">L</option>
-            <option value="xl">XL</option>
-            <option value="xxl">XXL</option>
-        </select>
-        <label for="color">Color:</label>
-        <select name="color" id="color">
-            <option value="" selected disabled hidden>Choose color</option>
-            <option value="green">Green</option>
-            <option value="Blue">Blue</option>
-            <option value="yellow">Yellow</option>
-            <option value="red">Red</option>
-            <option value="black">Black</option>
-            <option value="White">White</option>
-        </select>
-        <label for="category">Category:</label>
-        <select name="category" id="category">
-            <option value="" selected disabled hidden>None</option>
-            <% categories.forEach(cat => { %>
-                <option value="<%= cat.name %>"><%= cat.name %></option>
-            <% }) %>
-        </select>
-        <button type="submit">Create</button>
-    </form>
+    <%- include("./partials/productForm.ejs", {action: "/create"}) %>
 </body>
 </html>
