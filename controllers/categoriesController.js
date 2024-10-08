@@ -13,7 +13,12 @@ const categoryGet = asyncHandler(async (req, res) => {
     res.render("category", {title: `${category.name} - category info`, info: category})
 })
 
+function categoryCreateGet(req, res) {
+    res.render("createCategory", {title: "Create Category"})
+}
+
 module.exports = {
     categoriesListGet,
     categoryGet,
+    categoryCreateGet,
 }
