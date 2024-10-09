@@ -29,8 +29,8 @@ const productGet = asyncHandler(async (req, res) => {
 })
 
 const productCreateGet = asyncHandler(async (req, res) => {
-    // empty until db query is developed
-    res.render("createProduct", {title: "Create New Product", categories: []})
+    const categories = await db.getAllCategories()
+    res.render("createProduct", {title: "Create New Product", categories: categories})
 })
 
 const productUpdateGet = asyncHandler(async (req, res) => {
