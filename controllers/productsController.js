@@ -8,7 +8,7 @@ async function productsListGet(req, res) {
 
     const [ products, categories ] = await Promise.all([db.getAllProducts(search, categoryId), db.getAllCategories()])
     await Promise.all(products.map(async (prod) => {
-        prod.category = await db.getCategory(prod.id)
+        prod.category = await db.getCategory(prod.category_id)
         if (prod.category) prod.category = prod.category.name
         return prod
     }))
