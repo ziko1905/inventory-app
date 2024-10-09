@@ -6,6 +6,10 @@
             <div class="data"><%= `${labels[key]} ${value}` %></div>
         <% } %>
     <% } %>
-    <a href="<%= route %>/<%= item.id %>/update" id="update-btn">Update</a>
-    <a href="<%= route %>/<%= item.id %>/delete" id="delete-btn">Delete</a>
+    <div class="buttons-div">
+        <a href="<%= route %>/<%= item.id %>/update" id="update-btn">Update</a>
+        <form action="<%= route %>/<%= item.id %>/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
 </div>
