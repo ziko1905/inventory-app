@@ -7,5 +7,6 @@ productsRouter.get("/:productId/detail", productsController.productGet)
 productsRouter.get("/:productId/update", productsController.productUpdateGet)
 productsRouter.get("/create", productsController.productCreateGet)
 productsRouter.post("/:productId/update", productsController.productUpdatePost)
+productsRouter.post("/create", productsController.productCreatePost)
 
 module.exports = productsRouter

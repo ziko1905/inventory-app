@@ -46,10 +46,16 @@ const productUpdatePost = asyncHandler(async (req, res) => {
     res.redirect("/")
 })
 
+const productCreatePost = asyncHandler(async (req, res) => {
+    await db.insertProduct(req.body)
+    res.redirect("/")
+})
+
 module.exports = {
     productsListGet,
     productGet,
     productCreateGet,
     productUpdateGet,
-    productUpdatePost
+    productUpdatePost,
+    productCreatePost,
 }
