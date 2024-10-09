@@ -30,10 +30,16 @@ const categoryUpdatePost = asyncHandler(async (req, res) => {
     res.redirect("/")
 })
 
+const categoryCreatePost = asyncHandler(async (req, res) => {
+    const category = await db.insertCategory(req.body)
+    res.redirect("/")
+})
+
 module.exports = {
     categoriesListGet,
     categoryGet,
     categoryCreateGet,
     categoryUpdateGet,
-    categoryUpdatePost
+    categoryUpdatePost,
+    categoryCreatePost
 }

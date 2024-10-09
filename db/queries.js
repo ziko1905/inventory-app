@@ -49,11 +49,19 @@ async function updateCategory(updatedCategory) {
                 ])
 }
 
+
+async function insertCategory(newCategory) {
+    await pool.query(`INSERT INTO categories 
+                        (name) VALUES
+                            ($1)`, [newCategory.name])
+}
+
 module.exports = {
     getAllProducts,
     getAllCategories,
     getProduct,
     getCategory,
     updateProduct,
-    updateCategory
+    updateCategory,
+    insertCategory
 }
