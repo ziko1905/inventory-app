@@ -20,6 +20,8 @@ const productGet = asyncHandler(async (req, res) => {
     const id = req.params.productId
     const product = await db.getProduct(id)
     if (!product) throw new NotFoundError(`Couldn't find product with id: ${id}`)
+    product.category = await db.getCategory(product.category_id).then(resolve => resolve.name)
+    console.log(product)
     res.render('product', { title: `${product.name} - product info`, product: product})
 })
 
