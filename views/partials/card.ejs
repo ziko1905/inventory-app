@@ -3,7 +3,7 @@
     <% const labels = {stock_amount: 'Stock Amount: ', size: 'Size: ', color: 'Color: ', category: 'Category: '} %>
     <% for (const [key, value] of Object.entries(item)) {%>
         <% if (value && !['name', 'id', 'category_id'].includes(key)) {%>
-            <div class="data"><%= `${labels[key]} ${value}` %></div>
+            <div class="data"><%= `${labels[key]} ${key != 'size' ? value : value.toLocaleUpperCase() }` %></div>
         <% } %>
     <% } %>
     <div class="buttons-div">
