@@ -25,9 +25,15 @@ const categoryUpdateGet = asyncHandler(async (req, res) => {
     res.render("updateCategory", {title: `${category.name} - category update`, category: category})
 })
 
+const categoryUpdatePost = asyncHandler(async (req, res) => {
+    const category = await db.updateCategory(req.body)
+    res.redirect("/")
+})
+
 module.exports = {
     categoriesListGet,
     categoryGet,
     categoryCreateGet,
     categoryUpdateGet,
+    categoryUpdatePost
 }

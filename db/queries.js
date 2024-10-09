@@ -39,10 +39,21 @@ async function updateProduct(updatedProd) {
                 ])
 }
 
+async function updateCategory(updatedCategory) {
+    await pool.query(`UPDATE categories SET
+                    name = $1
+                  WHERE id = $2;`,
+                [
+                    updatedCategory.name || null,
+                    updatedCategory.id
+                ])
+}
+
 module.exports = {
     getAllProducts,
     getAllCategories,
     getProduct,
     getCategory,
-    updateProduct
+    updateProduct,
+    updateCategory
 }

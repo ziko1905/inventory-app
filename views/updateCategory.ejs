@@ -10,6 +10,7 @@
     <form action="/categories/<%= category.id %>/update" method="POST">
         <label for="name">Name: </label>
         <input type="text" id="name" name="name" value="<%= category.name %>">
+        <input type="text" name="id" value="<%= category.id %>" hidden>
         <button type="submit">Update</button>
     </form>
 </body>
