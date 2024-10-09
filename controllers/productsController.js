@@ -31,10 +31,12 @@ const productCreateGet = asyncHandler(async (req, res) => {
 })
 
 const productUpdateGet = asyncHandler(async (req, res) => {
-    const id = req.params.id
-    const { product } = await db.getProduct(id)
+    const id = req.params.productId
+    console.log(id)
+    const [product, categories]  = await Promise.all([db.getProduct(id), db.getAllCategories()])
     if (!product) throw new NotFoundError(`Couldn't find product with id: ${id}`)
-    res.render('updateProduct', {title: `${product.name} - product update`, product: product})
+    product.category = await db.getCategory(product.category_id)
+    res.render('updateProduct', {title: `${product.name} - product update`, product: product, categories: categories})
 })
 
 module.exports = {

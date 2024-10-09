@@ -7,6 +7,61 @@
 </head>
 <body>
     <h1><%= title %></h1>
-    <%- include("./partials/productForm", {action: `/${product.id}/update}) %>
+    <form action="/<%= product.id %>/update" method="POST">
+        <label for="productName">Name</label>
+        <input type="text" name="name" id="productName" value="<%= product.name %>" required>
+        <label for="stockAmount">Amount in stock:</label>
+        <input min="1" type="number" name="stockAmount" id="stockAmount" value="<%= product.stock_amount %>" required>
+        <label for="size">Size:</label>
+        <select name="size" id="size">
+            <% sizes = ['xs', 's', 'm', 'l', 'xl', 'xxl'] %>
+            <% console.log(product.size) %>
+            <% if (!product.size) {%>
+                <option value="" selected disabled hidden>Choose size</option>
+            <% } else { %>
+                <option value="" disabled hidden>Choose size</option>
+            <% } %>
+            <% for (const size of sizes) { %>
+                <% if (product.size !== size) { %>
+                    <option value="<%= size %>"><%= size.toLocaleUpperCase() %></option>
+                <% } else { %>
+                    <option value="<%= size %>" selected><%= size.toLocaleUpperCase() %></option>
+                <% } %>
+            <% } %>
+        </select>
+        <label for="color">Color:</label>
+        <select name="color" id="color">
+            <% colors = ['Green', 'Blue', 'Yellow', 'Red', 'Black', 'White'] %>
+            <% console.log(product.color) %>
+            <% if (!product.color) {%>
+                <option value="" selected disabled hidden>Choose size</option>
+            <% } else { %>
+                <option value="" disabled hidden>Choose size</option>
+            <% } %>
+            <% for (const color of colors) { %>
+                <% if (product.color !== color) { %>
+                    <option value="<%= color %>"><%= color %></option>
+                <% } else { %>
+                    <option value="<%= color %>" selected><%= color %></option>
+                <% } %>
+            <% } %>
+        </select>
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+            <% if (!product.category) { %>
+                <option value="" selected>None</option>
+            <% } else { %>
+                <option value="">None</option>
+            <% } %>
+            <% categories.forEach(cat => { %>
+                <% if (product.category && cat.id == product.category.id) { %>
+                    <option value="<%= cat.name %>" selected><%= cat.name %></option>
+                <% } else { %>
+                    <option value="<%= cat.name %>"><%= cat.name %></option>
+                <% } %>
+            <% }) %>
+        </select>
+        <button type="submit">Update</button>
+    </form>
 </body>
 </html>
