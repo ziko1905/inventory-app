@@ -21,9 +21,29 @@ async function getAllCategories() {
     return rows
 }
 
+async function updateProduct(updatedProd) {
+    console.log("Updating...")
+    await pool.query(`UPDATE products SET
+                    name = $1,
+                    stock_amount = $2,
+                    color = $3,
+                    size = $4,
+                    category_id = $5
+                  WHERE id = $6;`,
+                [
+                    updatedProd.name || null,
+                    updatedProd.stockAmount || null, 
+                    updatedProd.color || null,
+                    updatedProd.size || null,
+                    updatedProd.categoryId || null,
+                    updatedProd.id
+                ])
+}
+
 module.exports = {
     getAllProducts,
     getAllCategories,
     getProduct,
     getCategory,
+    updateProduct
 }

@@ -42,9 +42,16 @@ const productUpdateGet = asyncHandler(async (req, res) => {
     res.render('updateProduct', {title: `${product.name} - product update`, product: product, categories: categories})
 })
 
+const productUpdatePost = asyncHandler(async (req, res) => {
+    console.log(req.body)
+    await db.updateProduct(req.body)
+    res.redirect("/")
+})
+
 module.exports = {
     productsListGet,
     productGet,
     productCreateGet,
-    productUpdateGet
+    productUpdateGet,
+    productUpdatePost
 }

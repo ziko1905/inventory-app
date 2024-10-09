@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1><%= title %></h1>
-    <form action="/<%= product.id %>/update" method="PUT">
+    <form action="/<%= product.id %>/update" method="POST">
         <label for="productName">Name</label>
         <input type="text" name="name" id="productName" value="<%= product.name %>" required>
         <label for="stockAmount">Amount in stock:</label>
@@ -61,6 +61,7 @@
                 <% } %>
             <% }) %>
         </select>
+        <input type="text" name="id" value="<%= product.id %>" hidden>
         <button type="submit">Update</button>
     </form>
 </body>
