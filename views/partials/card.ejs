@@ -1,5 +1,5 @@
 <div class="card">
-    <h3><%= item.name%></h3>
+    <a href="/<%= item.id %>/detail" class="item-heading"><%= item.name%></a>
     <% const labels = {stock_amount: 'Stock Amount: ', size: 'Size: ', color: 'Color: ', category: 'Category: '} %>
     <% for (const [key, value] of Object.entries(item)) {%>
         <% if (value && !['name', 'id', 'category_id'].includes(key)) {%>
