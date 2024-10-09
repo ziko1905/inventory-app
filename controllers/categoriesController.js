@@ -27,12 +27,17 @@ const categoryUpdateGet = asyncHandler(async (req, res) => {
 
 const categoryUpdatePost = asyncHandler(async (req, res) => {
     const category = await db.updateCategory(req.body)
-    res.redirect("/")
+    res.redirect("/categories")
 })
 
 const categoryCreatePost = asyncHandler(async (req, res) => {
     const category = await db.insertCategory(req.body)
-    res.redirect("/")
+    res.redirect("/categories")
+})
+
+const categoryDeletePost = asyncHandler(async (req, res) => {
+    const category = await db.deleteCategory(req.params.categoryId)
+    res.redirect("/categories")
 })
 
 module.exports = {
@@ -41,5 +46,6 @@ module.exports = {
     categoryCreateGet,
     categoryUpdateGet,
     categoryUpdatePost,
-    categoryCreatePost
+    categoryCreatePost,
+    categoryDeletePost,
 }
