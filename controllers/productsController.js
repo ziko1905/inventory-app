@@ -1,6 +1,21 @@
 const db = require("../db/queries")
 const asyncHandler = require("express-async-handler")
 const { NotFoundError } = require("../errors")
+const { body, validationResult } = require("express-validator")
+
+const validateProduct = [
+    body("name").trim()
+        .notEmpty()
+        .withMessage("Product must have a name")
+        .isString()
+        .withMessage("Product name must be string"),
+
+    body("stockAmount")
+        .notEmpty()
+        .isNumeric()
+        .withMessage("Must be whole number")
+        .isFloat({min: 0}),
+]
 
 const productsListGet = asyncHandler(async (req, res) => {
     const search = req.query.search
@@ -41,15 +56,25 @@ const productUpdateGet = asyncHandler(async (req, res) => {
     res.render('updateProduct', {title: `${product.name} - product update`, product: product, categories: categories})
 })
 
-const productUpdatePost = asyncHandler(async (req, res) => {
-    await db.updateProduct(req.body)
-    res.redirect("/")
-})
+const productUpdatePost = [
+    validateProduct,
+    asyncHandler(async (req, res) => {
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) throw new Error(errors.array().map(e => e.msg).join(", "))
+        await db.updateProduct(req.body)
+        res.redirect("/")
+    })
+]
 
-const productCreatePost = asyncHandler(async (req, res) => {
-    await db.insertProduct(req.body)
-    res.redirect("/")
-})
+const productCreatePost = [
+    validateProduct,
+    asyncHandler(async (req, res) => {
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) throw new Error(errors.array().map(e => e.msg).join(", "))
+        await db.insertProduct(req.body)
+        res.redirect("/")
+    })
+]
 
 const productDeletePost = asyncHandler(async (req, res) => {
     await db.deleteProduct(req.params.productId)
