@@ -1,11 +1,14 @@
 <table class="info-table">
-    <% const labels = {name: 'Name:', stock_amount: 'Stock Amount: ', size: 'Size: ', color: 'Color: ', category: 'Category: ', id: 'Id: '} %>
+    <% const labels = [{name: 'Name:'}, {stock_amount: 'Stock Amount: '}, {size: 'Size: '}, {color: 'Color: '}, {category: 'Category: '}, {id: 'Id: '}] %>
     <!-- Not order proofed - order could change -->
-    <% for (const [key, value] of Object.entries(info)) {%>
-        <% if (!labels[key] || !value) continue %>
-        <tr>
-            <th><%= labels[key] %></th>
-            <th><%= value %></th>
-        </tr>
+    <% for (const label of labels) {%>
+        <% console.log(label) %>
+        <% for (const [key, value] of Object.entries(label)) {%>
+            <% if (!info[key]) continue %>
+            <tr>
+                <th><%= value %></th>
+                <th><%= info[key] %></th>
+            </tr>
+        <%  }%>
     <% } %>
 </table>
