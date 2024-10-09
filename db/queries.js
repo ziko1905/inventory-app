@@ -22,7 +22,6 @@ async function getAllCategories() {
 }
 
 async function updateProduct(updatedProd) {
-    console.log("Updating...")
     await pool.query(`UPDATE products SET
                     name = $1,
                     stock_amount = $2,

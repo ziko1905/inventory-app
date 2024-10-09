@@ -24,7 +24,7 @@ const productGet = asyncHandler(async (req, res) => {
         if (resolve) return resolve.name
         return resolve
     })
-    console.log(product)
+
     res.render('product', { title: `${product.name} - product info`, product: product})
 })
 
@@ -35,7 +35,6 @@ const productCreateGet = asyncHandler(async (req, res) => {
 
 const productUpdateGet = asyncHandler(async (req, res) => {
     const id = req.params.productId
-    console.log(id)
     const [product, categories]  = await Promise.all([db.getProduct(id), db.getAllCategories()])
     if (!product) throw new NotFoundError(`Couldn't find product with id: ${id}`)
     product.category = await db.getCategory(product.category_id)
@@ -43,7 +42,6 @@ const productUpdateGet = asyncHandler(async (req, res) => {
 })
 
 const productUpdatePost = asyncHandler(async (req, res) => {
-    console.log(req.body)
     await db.updateProduct(req.body)
     res.redirect("/")
 })

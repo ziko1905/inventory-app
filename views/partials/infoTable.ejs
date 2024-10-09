@@ -2,7 +2,6 @@
     <% const labels = [{name: 'Name:'}, {stock_amount: 'Stock Amount: '}, {size: 'Size: '}, {color: 'Color: '}, {category: 'Category: '}, {id: 'Id: '}] %>
     <!-- Not order proofed - order could change -->
     <% for (const label of labels) {%>
-        <% console.log(label) %>
         <% for (const [key, value] of Object.entries(label)) {%>
             <% if (!info[key]) continue %>
             <tr>

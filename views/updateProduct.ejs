@@ -15,7 +15,6 @@
         <label for="size">Size:</label>
         <select name="size" id="size">
             <% sizes = ['xs', 's', 'm', 'l', 'xl', 'xxl'] %>
-            <% console.log(product.size) %>
             <% if (!product.size) {%>
                 <option value="" selected disabled hidden>Choose size</option>
             <% } else { %>
@@ -32,7 +31,6 @@
         <label for="color">Color:</label>
         <select name="color" id="color">
             <% colors = ['Green', 'Blue', 'Yellow', 'Red', 'Black', 'White'] %>
-            <% console.log(product.color) %>
             <% if (!product.color) {%>
                 <option value="" selected disabled hidden>Choose size</option>
             <% } else { %>
