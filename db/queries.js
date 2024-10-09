@@ -68,6 +68,11 @@ async function insertCategory(newCategory) {
                             ($1)`, [newCategory.name])
 }
 
+async function deleteProduct(id) {
+    await pool.query(`DELETE FROM products
+                        WHERE id = $1`, [id])
+}
+
 module.exports = {
     getAllProducts,
     getAllCategories,
@@ -76,6 +81,6 @@ module.exports = {
     updateProduct,
     updateCategory,
     insertProduct,
-    insertCategory
-
+    insertCategory,
+    deleteProduct,
 }

@@ -51,6 +51,11 @@ const productCreatePost = asyncHandler(async (req, res) => {
     res.redirect("/")
 })
 
+const productDeletePost = asyncHandler(async (req, res) => {
+    await db.deleteProduct(req.params.productId)
+    res.redirect("/")
+})
+
 module.exports = {
     productsListGet,
     productGet,
@@ -58,4 +63,5 @@ module.exports = {
     productUpdateGet,
     productUpdatePost,
     productCreatePost,
+    productDeletePost,
 }
