@@ -2,7 +2,7 @@ const db = require("../db/queries")
 const asyncHandler = require("express-async-handler")
 const { NotFoundError } = require("../errors")
 
-async function productsListGet(req, res) {
+const productsListGet = asyncHandler(async (req, res) => {
     const search = req.query.search
     const categoryId = req.query.categoryId
 
@@ -14,7 +14,7 @@ async function productsListGet(req, res) {
     }))
 
     res.render("listProducts", {title: "Products list", products: products, categories: categories})
-}
+})
 
 const productGet = asyncHandler(async (req, res) => {
     const id = req.params.productId
