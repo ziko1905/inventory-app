@@ -8,7 +8,10 @@
 </head>
 <body>
     <%- include("./partials/navbar.ejs") %>
-    <h1><%= title %></h1>
+    <header>
+        <h1><%= title %></h1>
+        <a class="create-btn" href="/categories/create">Create New</a>
+    </header>
     <div class="filter-div">
         <form action="/" method="POST">
             <input type="text" name="search" id="search-bar">
@@ -19,6 +22,5 @@
         <!-- WIP - waiting for clearer picture of card.ejs implementation -->
         <%- include("./partials/card.ejs", { item: cat, route: "/categories" }) %>
     <% }) %>
-    <a href="/categories/create">Create New</a>
 </body>
 </html>
