@@ -24,10 +24,10 @@
         <option value="White">White</option>
     </select>
     <label for="category">Category:</label>
-    <select name="category" id="category">
+    <select name="categoryId" id="category">
         <option value="" selected disabled hidden>None</option>
         <% categories.forEach(cat => { %>
-            <option value="<%= cat.name %>"><%= cat.name %></option>
+            <option value="<%= cat.id %>"><%= cat.name %></option>
         <% }) %>
     </select>
     <button type="submit">Create</button>
