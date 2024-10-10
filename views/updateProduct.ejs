@@ -9,7 +9,7 @@
 <body>
     <%- include("./partials/navbar.ejs") %>
     <h1><%= title %></h1>
-    <form action="/<%= product.id %>/update" method="POST">
+    <form class="post-form" action="/<%= product.id %>/update" method="POST">
         <label for="productName">Name</label>
         <input type="text" name="name" id="productName" value="<%= product.name %>" required>
         <label for="stockAmount">Amount in stock:</label>
