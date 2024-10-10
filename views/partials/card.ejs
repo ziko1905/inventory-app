@@ -7,9 +7,9 @@
         <% } %>
     <% } %>
     <div class="buttons-div">
-        <a href="<%= route %>/<%= item.id %>/update" id="update-btn">Update</a>
+        <a href="<%= route %>/<%= item.id %>/update" id="update-btn" class="update-btn">Update</a>
         <form action="<%= route %>/<%= item.id %>/delete" method="POST">
-            <button type="submit">Delete</button>
+            <button type="submit" class="delete-btn">Delete</button>
         </form>
     </div>
 </div>

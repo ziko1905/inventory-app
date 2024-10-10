@@ -48,3 +48,93 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+.navbar {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  gap: 3rem;
+
+  padding: 1rem 5rem;
+  background-color: rgb(150, 177, 250);
+}
+
+.navbar a {
+  color: rgb(0, 0, 39);
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color, ease-in-out, 0.2s;
+}
+
+.navbar a:hover {
+  color: rgb(255, 255, 255);
+}
+
+header {
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+header > .create-btn {
+  font-size: 1.5rem;
+  padding: 0.7rem;
+  border-radius: 1rem;
+}
+
+.filter-div {
+  display: grid;
+  justify-content: center;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  gap: 0.5rem 1rem;
+
+  position: relative;
+  background-color: rgb(219, 228, 255);
+  margin: 1.5rem 3rem;
+  padding: 1rem;
+}
+
+.item-heading {
+  display: block;
+  font-size: 2rem;
+  color: rgb(0, 0, 39);
+  text-decoration: underline;
+
+  grid-column: 1 / -1;
+}
+
+.data {
+  display: inline;
+  grid-row: 2;
+  padding: 0.1rem 0.3rem;
+  background-color: white;
+}
+
+.buttons-div {
+  display: flex;
+  gap: 1rem;
+
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.update-btn,
+.delete-btn,
+.create-btn {
+  padding: 0.3rem 0.5rem;
+  background-color: rgb(114, 128, 255);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  text-decoration: none;
+}
+
+.delete-btn {
+  background-color: brown;
+}

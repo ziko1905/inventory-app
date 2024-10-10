@@ -8,7 +8,10 @@
 </head>
 <body>
     <%- include("./partials/navbar.ejs") %>
-    <h1><%= title %></h1>
+    <header>
+        <h1><%= title %></h1>
+        <a class="create-btn" href="/create">Create New</a>
+    </header>
     <div class="filter-div">
         <form action="/" method="GET">
             <input type="text" name="search" id="search-bar">
@@ -24,6 +27,5 @@
     <% products.forEach(prod => { %>
         <%- include("./partials/card.ejs", { item: prod, route: "" }) %>
     <% }) %>
-    <a href="/create">Create New</a>
 </body>
 </html>
