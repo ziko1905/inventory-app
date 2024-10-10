@@ -5,8 +5,8 @@
         <% for (const [key, value] of Object.entries(label)) {%>
             <% if (!info[key]) continue %>
             <tr>
-                <th><%= value %></th>
-                <th><%= info[key] %></th>
+                <td><%= value %></td>
+                <td><%= info[key] %></td>
             </tr>
         <%  }%>
     <% } %>

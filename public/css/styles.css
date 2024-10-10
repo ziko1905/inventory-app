@@ -82,6 +82,11 @@ header > .create-btn {
   border-radius: 1rem;
 }
 
+body > h1 {
+  margin: 2rem;
+  text-align: center;
+}
+
 .filter-div {
   display: grid;
   justify-content: center;
@@ -149,4 +154,30 @@ header > .create-btn {
 
 .post-form button {
   grid-column: 1 / -1;
+}
+
+.info {
+  display: grid;
+  gap: 1rem;
+
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.info h2 {
+  text-align: center;
+}
+
+.info table {
+  font-size: 1.5rem;
+  border-collapse: collapse;
+}
+
+.info table td {
+  gap: 0px;
+  border: 1px solid gray;
+}
+
+.info tr:nth-child(even) {
+  background-color: rgb(225, 237, 255);
 }
