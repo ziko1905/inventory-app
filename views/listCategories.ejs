@@ -19,7 +19,6 @@
         </form>
     </div>
     <% categories.forEach(cat => { %>
-        <!-- WIP - waiting for clearer picture of card.ejs implementation -->
         <%- include("./partials/card.ejs", { item: cat, route: "/categories" }) %>
     <% }) %>
 </body>
