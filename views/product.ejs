@@ -14,9 +14,9 @@
         <%- include("./partials/infoTable", {info: product}) %>
     </div>
     <div class="buttons-div">
-        <a href="/<%= product.id %>/update">Update</a>
+        <a class="update-btn" href="/<%= product.id %>/update">Update</a>
         <form action="/<%= product.id %>/delete" method="POST">
-            <button type="submit" onclick="confirm('Are you sure you want to delete this product?')">Delete</button>
+            <button class="delete-btn" type="submit" onclick="confirm('Are you sure you want to delete this product?')">Delete</button>
         </form>
     </div>
 </body>
